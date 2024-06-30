@@ -1,35 +1,43 @@
+# Biblioteca TypeScript para RFID USB
 
-### RFID Driver:
+Esta biblioteca TypeScript foi desenvolvida para facilitar a integração com dispositivos RFID USB em aplicações React no lado do cliente.
 
-```html
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca TypeScript para RFID USB</title>
-</head>
-<body>
+## Instalação
 
-<h1>Biblioteca TypeScript para RFID USB</h1>
+Para instalar a biblioteca, você pode usar npm ou yarn:
 
-<p>Esta biblioteca TypeScript foi desenvolvida para facilitar a integração com dispositivos RFID USB em aplicações React no lado do cliente.</p>
+```bash
+npm install rfid-driver
+```
 
-<h2>Instalação</h2>
+## Como Encontrar Vendor ID e Product ID
 
-<p>Para instalar a biblioteca, você pode usar npm ou yarn:</p>
+Para integrar o seu dispositivo RFID USB com esta biblioteca, siga os passos abaixo para obter o Vendor ID e Product ID necessários:
 
-<pre><code>npm install sua-biblioteca
-</code></pre>
-ou
-<pre><code>yarn add sua-biblioteca
-</code></pre>
+### Windows:
 
-<h2>Exemplos de Uso</h2>
+1. Conecte o leitor RFID USB ao seu computador.
+2. Abra o "Gerenciador de Dispositivos".
+3. Localize o seu dispositivo na lista de dispositivos USB.
+4. Clique com o botão direito do mouse no dispositivo e selecione "Propriedades".
+5. Na guia "Detalhes", selecione "IDs de hardware" no menu suspenso.
+6. Anote o Vendor ID e Product ID exibidos.
 
-<h3>Exemplo Básico de Uso</h3>
+### Linux:
 
-<pre><code class="language-typescript">import { RfidDriver } from 'sua-biblioteca';
+1. Conecte o leitor RFID USB ao seu computador.
+2. Abra um terminal.
+3. Execute o comando `lsusb`.
+4. Encontre o seu dispositivo na lista. O output mostrará o Vendor ID e Product ID do dispositivo.
+5. Anote o Vendor ID e Product ID exibidos.
+
+
+## Exemplos de Uso
+
+### Exemplo Básico de Uso
+
+```typescript
+import { RfidDriver } from 'sua-biblioteca';
 
 const vendorId = 0x1234; // Substitua com o ID do fornecedor do seu dispositivo
 const productId = 0x5678; // Substitua com o ID do produto do seu dispositivo
@@ -48,21 +56,22 @@ async function readData() {
 }
 
 readData();
-</code></pre>
+```
 
-<h3>Integração com React</h3>
+## Integração com React
 
-<pre><code class="language-tsx">import React, { useEffect, useState } from 'react';
+```typescript
+import React, { useEffect, useState } from 'react';
 import { RfidDriver } from 'sua-biblioteca';
 
 const vendorId = 0x1234; // Substitua com o ID do fornecedor do seu dispositivo
 const productId = 0x5678; // Substitua com o ID do produto do seu dispositivo
 
-const RfidReader: React.FC = () =&gt; {
+const RfidReader: React.FC = () => {
     const [rfid, setRfid] = useState(null);
 
-    useEffect(() =&gt; {
-        const initRfid = async () =&gt; {
+    useEffect(() => {
+        const initRfid = async () => {
             try {
                 const driver = new RfidDriver(vendorId, productId);
                 await driver.openDevice();
@@ -74,14 +83,14 @@ const RfidReader: React.FC = () =&gt; {
 
         initRfid();
 
-        return () =&gt; {
+        return () => {
             if (rfid) {
                 rfid.close();
             }
         };
     }, []);
 
-    const handleReadData = async () =&gt; {
+    const handleReadData = async () => {
         try {
             if (rfid) {
                 const data = await rfid.readData('FFCA000000');
@@ -93,43 +102,28 @@ const RfidReader: React.FC = () =&gt; {
     };
 
     return (
-        &lt;div&gt;
-            &lt;button onClick={handleReadData}&gt;Ler Dados RFID&lt;/button&gt;
-        &lt;/div&gt;
+        <div>
+            <button onClick={handleReadData}>Ler Dados RFID</button>
+        </div>
     );
 };
 
 export default RfidReader;
-</code></pre>
 
-<h2>Exemplos de Dispositivos</h2>
+```
 
-<p>A biblioteca suporta uma variedade de dispositivos RFID. Aqui estão alguns exemplos:</p>
+## Exemplos de Dispositivos
 
-<ul>
-    <li>
-        <strong>Dispositivo A</strong>
-        <ul>
-            <li><strong>Vendor ID:</strong> 0x1234</li>
-            <li><strong>Product ID:</strong> 0x5678</li>
-        </ul>
-    </li>
-    <li>
-        <strong>Dispositivo B</strong>
-        <ul>
-            <li><strong>Vendor ID:</strong> 0xABCD</li>
-            <li><strong>Product ID:</strong> 0xEF01</li>
-        </ul>
-    </li>
-</ul>
+A biblioteca suporta uma variedade de dispositivos RFID. Aqui estão alguns exemplos:
 
-<h2>Contribuição</h2>
+- **Dispositivo A**
+  - **Vendor ID:** 0x1234
+  - **Product ID:** 0x5678
 
-<p>Contribuições são bem-vindas! Para relatar bugs ou enviar pull requests, por favor, consulte nosso <a href="https://github.com/seu-usuario/sua-biblioteca">repositório no GitHub</a>.</p>
+- **Dispositivo B**
+  - **Vendor ID:** 0xABCD
+  - **Product ID:** 0xEF01
 
-<h2>Licença</h2>
+## Contribuição
 
-<p>Este projeto é licenciado sob a <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
-
-</body>
-</html>
+Contribuições são bem-vindas! Para relatar bugs ou enviar pull requests, por favor, consulte nosso [repositório no GitHub](https://github.com/seu-usuario/sua-biblioteca).
