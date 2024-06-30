@@ -1,0 +1,19 @@
+{
+  "name": "rfid-usb-library",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "typescript": "^5.5.2",
+    "usb": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9"
+  }
+}
