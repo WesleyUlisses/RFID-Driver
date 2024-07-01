@@ -1,6 +1,7 @@
 # Biblioteca TypeScript para RFID USB
 
 Esta biblioteca TypeScript foi desenvolvida para facilitar a integração com dispositivos RFID USB em aplicações React no lado do cliente.
+A necessidade desta lib veio neste projeto: https://github.com/LabsPlus/Eat-Eating-WebApp, um sistema para gerenciamento de restaurantes universitarios, implantado em algumas universidades do sul da Bahia.
 
 ## Instalação
 
@@ -37,7 +38,7 @@ Para integrar o seu dispositivo RFID USB com esta biblioteca, siga os passos aba
 ### Exemplo Básico de Uso
 
 ```typescript
-import { RfidDriver } from 'sua-biblioteca';
+import { RfidDriver } from 'rfid-driver';
 
 const vendorId = 0x1234; // Substitua com o ID do fornecedor do seu dispositivo
 const productId = 0x5678; // Substitua com o ID do produto do seu dispositivo
@@ -62,7 +63,7 @@ readData();
 
 ```typescript
 import React, { useEffect, useState } from 'react';
-import { RfidDriver } from 'sua-biblioteca';
+import { RfidDriver } from 'rfid-driver';
 
 const vendorId = 0x1234; // Substitua com o ID do fornecedor do seu dispositivo
 const productId = 0x5678; // Substitua com o ID do produto do seu dispositivo
@@ -126,4 +127,4 @@ A biblioteca suporta uma variedade de dispositivos RFID. Aqui estão alguns exem
 
 ## Contribuição
 
-Contribuições são bem-vindas! Para relatar bugs ou enviar pull requests, por favor, consulte nosso [repositório no GitHub](https://github.com/seu-usuario/sua-biblioteca).
+Contribuições são bem-vindas! Para relatar bugs ou enviar pull requests, por favor, consulte nosso [repositório no GitHub](https://github.com/WesleyUlisses/RFID-Driver/).
