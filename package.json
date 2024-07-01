@@ -1,19 +1,32 @@
 {
-  "name": "rfid-usb-library",
+  "name": "rfid-driver",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Biblioteca TypeScript para integração com dispositivos RFID USB.",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WesleyUlisses/RFID-Driver.git"
+  },
+  "keywords": [
+    "rfid",
+    "typescript",
+    "usb"
+  ],
+  "author": "Wesley Ulisses",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "usb": "^2.13.0",
+    "buffer": "^5.0.0",
+    "@types/node": "^20.14.9"
+  },
   "dependencies": {
     "typescript": "^5.5.2",
-    "usb": "^2.13.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.14.9"
+    "usb": "^1.0.0",
+    "buffer": "^5.0.0"
   }
 }
